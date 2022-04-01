@@ -12,8 +12,8 @@ Movie wishlist is an small application for keeping the track of your movies.
 ### Pre-requirements
 These services must be installed, configured and running:
 
--- MongoDB
--- Python (>= 3.8)
+- MongoDB
+- Python (>= 3.8)
 
 To use movie wishlist, create an API KEY of OMDB: http://www.omdbapi.com/apikey.aspx
 and set it as ENV API_KEY=<your_api_key>
