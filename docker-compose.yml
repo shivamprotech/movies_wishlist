@@ -1,0 +1,30 @@
+version: '3.4'
+
+networks:
+  integration-tests-example:
+    driver: bridge
+
+services:
+  db:
+    image: mongo:latest
+    container_name: "mongodb"
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - db-data:/data/db
+  web:
+    build: .
+    environment:
+      - SECRET_KEY=78asdfghjkl65
+      - FLASK_ENV=development
+      - FLASK_APP=wsgi.py
+      - MONGODB_SETTINGS=mongodb://db/movie_wishlist
+      - API_KEY=${API_KEY}
+    ports:
+      - "127.0.0.1:5000:5000"
+    depends_on:
+      - db
+    links:
+      - db
+volumes:
+  db-data:

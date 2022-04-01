@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {% for movie in movies %}
+      <div class="col-md-3 d-flex align-items-stretch">
+        <div class="card shadow-sm">
+          <img src="{{movie.Poster}}" width=""/>
+          <div class="card-body">
+          <div class="content">
+              <p class="txt4">Release Year: <b><i>{{movie.Year}}</i></b></p>
+              <hp class="txt5">Title: <b><i>{{movie.Title}}</i></b></p>
+          </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+</main>
+{% endblock %}
